@@ -1,6 +1,6 @@
 local M = {}
 
-local custom_macro_dir = vim.fn.stdpath("data").."/sal_proj_data"
+local custom_macro_dir = vim.fn.stdpath("data").."/sal_custom_macro_data"
 local file_path  = custom_macro_dir.."/custom_macro.dat"
 
 local uv = vim.loop
