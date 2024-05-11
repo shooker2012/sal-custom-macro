@@ -1,0 +1,45 @@
+*sal-custom-macro.txt*		Plugin to save/load/execute normal commands.
+
+
+==============================================================================
+COMMANDS
+*sal-custom-macro-commands*
+
+------------------------------------------------------------------------------
+Save Macros                                                *SalSaveMacroTable*
+
+:SalSaveMacroTable
+
+Save all the macros to file. The file path is
+"<nvim-data>/sal_custom_macro_data/custom_macro.dat".
+
+------------------------------------------------------------------------------
+Set Macro By Name                                                *SalSetMacro*
+
+:SalSetMacro <macro_name> <register>
+
+Set register's content to the macro table by <macro>. After setting, you can use
+it by |SalExecuteMacro| or |SalGetMacro|.
+
+------------------------------------------------------------------------------
+Get Macro By Name                                                *SalGetMacro*
+
+:SalGetMacro <macro_name> <register>
+
+Set register by macro's content.
+
+------------------------------------------------------------------------------
+Execute Macro                                                *SalExecuteMacro*
+
+:SalExecuteMacro <macro_name>
+
+Execute normal commands that's set by <macro_name>. The <macro_name> must be
+set by |SalSetMacro| or load by file before.
+
+------------------------------------------------------------------------------
+Clear Macros                                              *SalClearMacroTable*
+
+:SalClearMacroTable <macro_name>
+
+Clear all macros. Note it's only clear macro in memory. If not
+|SalSaveMacroTable|, macro table will be reset by file.
