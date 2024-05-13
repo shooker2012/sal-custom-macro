@@ -107,7 +107,7 @@ vim.api.nvim_create_user_command("SalGetMacro", function(arg_table) GetMacro(mac
 vim.api.nvim_create_user_command("SalClearMacroTable", function(arg_table) macro_table = {} end, {nargs=0})
 
 -- command alias
-vim.cmd([[ cnoreabbrev SE SalExecuteMacro ]])
+vim.cmd([[cnoreabbrev SE SalExecuteMacro]])
 
 -- -- auto commands.
 -- vim.api.nvim_create_autocmd("VimLeavePre", {callback =  function() SaveMacroTable(file_path, macro_table) end})
