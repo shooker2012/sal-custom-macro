@@ -52,14 +52,16 @@ function ExecuteMacro(p_macro_table, p_macro_name)
 
 	-- local cmd = string.format('exec "norm %s"', macro)
 	local cmd = string.format("norm %s", macro)
+	print("Execute: %s", cmd)
 	vim.cmd(cmd)
 end
 
 function SetMacro(p_macro_table, key, register)
 	if type(key) ~= "string" or type(register) ~= "string" then return end
-	if register[1] == "@" then register = string.sub(register, 2) end
+	if register:sub(1,1) == "@" then register = register:sub(2) end
 
 	local v = vim.fn.getreg(register)
+	print(string.format("SetMacro from <%s>: %s",register, v))
 	if v == "" then return end
 
 	p_macro_table[key] = v
@@ -71,9 +73,9 @@ function GetMacro(p_macro_table, key, register)
 
 	if type(v) ~= "string" then return end
 
-	if register[1] == "@" then register = string.sub(register, 2) end
+	if register:sub(1,1) == "@" then register = register:sub(2) end
 
-	print(register, v)
+	print(string.format("GetMacro to <%s>: %s",register, v))
 	vim.fn.setreg(register, v)
 end
 
