@@ -29,6 +29,13 @@ Get Macro By Name                                                *SalGetMacro*
 Set register by macro's content.
 
 ------------------------------------------------------------------------------
+Show All macros                                             *SalShowAllMacros*
+
+:SalShowAllMacros
+
+Print all macros in the macro table.
+
+------------------------------------------------------------------------------
 Execute Macro                                                *SalExecuteMacro*
 
 :SalExecuteMacro <macro_name>

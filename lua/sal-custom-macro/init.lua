@@ -79,6 +79,14 @@ function GetMacro(p_macro_table, key, register)
 	vim.fn.setreg(register, v)
 end
 
+function ShowAllMacros(file_path, p_macro_table)
+	for k, v in pairs(p_macro_table) do
+		print(string.format("k: %s, v: %s", k, v))
+	end
+
+	print("\nFILE PATH: ", file_path)
+end
+
 
 -- Read file
 local macro_table = LoadMacroTable(file_path)
@@ -105,6 +113,7 @@ vim.api.nvim_create_user_command("SalExecuteMacro", function(arg_table) ExecuteM
 vim.api.nvim_create_user_command("SalSetMacro", function(arg_table) SetMacro(macro_table, arg_table.fargs[1], arg_table.fargs[2]) end, {nargs="*"})
 vim.api.nvim_create_user_command("SalGetMacro", function(arg_table) GetMacro(macro_table, arg_table.fargs[1], arg_table.fargs[2]) end, {nargs="*"})
 vim.api.nvim_create_user_command("SalClearMacroTable", function(arg_table) macro_table = {} end, {nargs=0})
+vim.api.nvim_create_user_command("SalShowAllMacros", function(arg_table) ShowAllMacros(file_path, macro_table) end, {nargs=0})
 
 -- command alias
 vim.cmd([[cnoreabbrev SE SalExecuteMacro]])
